@@ -10,51 +10,63 @@ import spilehx.hxopencv.imgproc.Imgproc;
 
 class Main {
 	static function main() {
-		var video:VideoElement = cast Browser.document.getElementById("video");
-		var output = Browser.document.getElementById("output");
-		var status = Browser.document.getElementById("status");
-
 		HxOpenCV.init().then(function(_) {
-			Browser.navigator.mediaDevices.getUserMedia({video: true, audio: false}).then(function(stream) {
-				video.onloadedmetadata = function(_) {
-					video.play().then(function(_) {
-						video.width = video.videoWidth;
-						video.height = video.videoHeight;
-						var frame = new Mat(video.height, video.width, MatType.CV_8UC4);
-						var grayscale = new Mat();
-						var capture = new VideoCapture(video);
-						var active = true;
-						var stop = function(_) {
-							active = false;
-							grayscale.delete();
-							frame.delete();
-							for (track in stream.getTracks()) {
-								track.stop();
-							}
-						};
+			var example = new WebCamExample();
+			example.start();
+		});
+	}
+}
 
-						Browser.window.addEventListener("beforeunload", stop);
-						status.textContent = "Processing webcam video";
+class WebCamExample {
+	var video:VideoElement; // = cast Browser.document.getElementById("video");
+	var output:Dynamic;
+	var status:Dynamic;
 
-						var process:Float -> Void = null;
-						process = function(_) {
-							if (!active) return;
-							capture.read(frame);
-							Imgproc.cvtColor(frame, grayscale, ColorConversion.RGBA2GRAY);
-							ImgIo.imshow(cast output, grayscale);
-							Browser.window.requestAnimationFrame(process);
-						};
+	public function new() {
+		video = cast Browser.document.getElementById("video");
+		output = Browser.document.getElementById("output");
+		status = Browser.document.getElementById("status");
+	}
+
+	public function start() {
+		Browser.navigator.mediaDevices.getUserMedia({video: true, audio: false}).then(function(stream) {
+			video.onloadedmetadata = function(_) {
+				video.play().then(function(_) {
+					video.width = video.videoWidth;
+					video.height = video.videoHeight;
+					var frame = new Mat(video.height, video.width, MatType.CV_8UC4);
+					var grayscale = new Mat();
+					var capture = new VideoCapture(video);
+					var active = true;
+					var stop = function(_) {
+						active = false;
+						grayscale.delete();
+						frame.delete();
+						for (track in stream.getTracks()) {
+							track.stop();
+						}
+					};
+
+					Browser.window.addEventListener("beforeunload", stop);
+					status.textContent = "Processing webcam video";
+
+					var process:Float->Void = null;
+					process = function(_) {
+						if (!active)
+							return;
+						capture.read(frame);
+						Imgproc.cvtColor(frame, grayscale, ColorConversion.RGBA2GRAY);
+						ImgIo.imshow(cast output, grayscale);
 						Browser.window.requestAnimationFrame(process);
-					}).catchError(function(_) {
-						status.textContent = "Unable to start webcam video.";
-					});
-				};
-				video.srcObject = stream;
-			}).catchError(function(_) {
-				status.textContent = "Webcam access was not granted.";
-			});
+					};
+					Browser.window.requestAnimationFrame(process);
+				}).catchError(function(_) {
+					status.textContent = "Unable to start webcam video.";
+				});
+			};
+			video.srcObject = stream;
 		}).catchError(function(_) {
-			status.textContent = "OpenCV could not be initialized.";
+			status.textContent = "Webcam access was not granted.";
 		});
 	}
 }

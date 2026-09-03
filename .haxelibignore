@@ -1,0 +1,12 @@
+# Development / release tooling
+tools/
+coverage/
+manifest/
+
+# Repository metadata
+.git/
+.github/
+.gitignore
+
+# Generated example output
+examples/output/*/main.js

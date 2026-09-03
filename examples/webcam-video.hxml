@@ -1,4 +1,4 @@
--cp examples/webcam-video/src
+-cp webcam-video/src
 -main Main
 -lib hx-opencv
--js examples/output/webcam-video/main.js
+-js output/webcam-video/main.js

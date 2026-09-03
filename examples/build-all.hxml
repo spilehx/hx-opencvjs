@@ -1,9 +1,9 @@
-examples/mat-basics.hxml
+mat-basics.hxml
 --next
-examples/generated-image.hxml
+generated-image.hxml
 --next
-examples/resize-grayscale.hxml
+resize-grayscale.hxml
 --next
-examples/edge-detection.hxml
+edge-detection.hxml
 --next
-examples/webcam-video.hxml
+webcam-video.hxml
