@@ -1,5 +1,5 @@
 {
-  "name": "hx-opencv",
+  "name": "hx-opencvjs",
   "url": "https://github.com/spilehx/hx-opencvjs",
   "license": "MIT",
   "tags": ["haxe", "opencv", "computer-vision"],
