@@ -1,6 +1,6 @@
 {
   "name": "hx-opencv",
-  "url": "https://github.com/spilehx/hx-opencv",
+  "url": "https://github.com/spilehx/hx-opencvjs",
   "license": "MIT",
   "tags": ["haxe", "opencv", "computer-vision"],
   "description": "Self-contained Haxe extern bindings for bundled OpenCV.js 5.0.0.",
