@@ -1,0 +1,4 @@
+-cp examples/generated-image/src
+-main Main
+-lib hx-opencv
+-js examples/output/generated-image/main.js

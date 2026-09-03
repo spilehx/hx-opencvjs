@@ -1,0 +1,4 @@
+-cp examples/mat-basics/src
+-main Main
+-lib hx-opencv
+-js examples/output/mat-basics/main.js

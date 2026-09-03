@@ -1,0 +1,4 @@
+-cp examples/edge-detection/src
+-main Main
+-lib hx-opencv
+-js examples/output/edge-detection/main.js

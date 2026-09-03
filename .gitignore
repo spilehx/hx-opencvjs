@@ -1,0 +1,11 @@
+# Haxe build artifacts
+bin/
+export/
+
+# Local tooling dependencies and editor/operating-system files
+node_modules/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+main.js
