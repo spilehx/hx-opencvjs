@@ -28,17 +28,12 @@ class Main {
 }
 ```
 
+
+
 `HxOpenCV.init()` is a cached readiness barrier for the bundled runtime. Calling externs before it resolves is unsupported. Embind-backed values such as `Mat`, vectors, algorithm instances, and returned owned objects require explicit `delete()` when no longer needed; Haxe garbage collection does not release their OpenCV allocations.
 
-Representative supported areas include core/Mat operations, imgproc, browser image helpers, features, video, detection, DNN, photo, and calibration. The maintained [coverage report](coverage/opencv-5.0.0-coverage.json) records the exact bundle inventory: **452 covered exports**, **7 explicitly unmapped exports**, and **43 signature/ownership-ambiguous exports**. The latter two categories are intentionally not exposed without runtime evidence; browser-disabled native I/O remains unavailable.
 
-## Maintenance checks
+### See ./examples folder for simple example code
 
-```sh
-node tools/check-coverage.mjs
-node tools/check-package-layout.mjs
-node tools/verify-release.mjs
-node tools/verify-release-browser.mjs
-```
 
-`tools/generate-runtime-manifest.js` regenerates the checked-in runtime manifest only when `lib/opencv.js` changes.
+
