@@ -1,0 +1,53 @@
+package spilehx.hxopencv.core;
+
+@:native("cv")
+extern class CoreExtra {
+	static function absdiff(src1:Mat, src2:Mat, dst:Mat):Void;
+	static function addWeighted(src1:Mat, alpha:Float, src2:Mat, beta:Float, gamma:Float, dst:Mat, ?dtype:Int):Void;
+	static function bitwise_and(src1:Mat, src2:Mat, dst:Mat, ?mask:Mat):Void;
+	static function bitwise_not(src:Mat, dst:Mat, ?mask:Mat):Void;
+	static function bitwise_or(src1:Mat, src2:Mat, dst:Mat, ?mask:Mat):Void;
+	static function bitwise_xor(src1:Mat, src2:Mat, dst:Mat, ?mask:Mat):Void;
+	static function blendLinear(src1:Mat, src2:Mat, weights1:Mat, weights2:Mat, dst:Mat):Void;
+	static function cartToPolar(x:Mat, y:Mat, magnitude:Mat, angle:Mat, ?angleInDegrees:Bool):Void;
+	static function compare(src1:Mat, src2:Mat, dst:Mat, cmpop:Int):Void;
+	static function convertScaleAbs(src:Mat, dst:Mat, ?alpha:Float, ?beta:Float):Void;
+	static function copyMakeBorder(src:Mat, dst:Mat, top:Int, bottom:Int, left:Int, right:Int, borderType:Int, ?value:Scalar):Void;
+	static function countNonZero(src:Mat):Int;
+	static function determinant(mtx:Mat):Float;
+	static function dft(src:Mat, dst:Mat, ?flags:Int, ?nonzeroRows:Int):Void;
+	static function divSpectrums(a:Mat, b:Mat, c:Mat, flags:Int, ?conjB:Bool):Void;
+	static function eigen(src:Mat, eigenvalues:Mat, ?eigenvectors:Mat):Bool;
+	static function exp(src:Mat, dst:Mat):Void;
+	static function flip(src:Mat, dst:Mat, flipCode:Int):Void;
+	static function hconcat(src:MatVector, dst:Mat):Void;
+	static function gemm(src1:Mat, src2:Mat, alpha:Float, src3:Mat, beta:Float, dst:Mat, ?flags:Int):Void;
+	static function getBuildInformation():String;
+	static function getOptimalDFTSize(vecsize:Int):Int;
+	static function invert(src:Mat, dst:Mat, ?flags:Int):Float;
+	static function log(src:Mat, dst:Mat):Void;
+	static function LUT(src:Mat, lut:Mat, dst:Mat):Void;
+	static function magnitude(x:Mat, y:Mat, magnitude:Mat):Void;
+	static function max(src1:Mat, src2:Mat, dst:Mat):Void;
+	static function meanStdDev(src:Mat, mean:Mat, stddev:Mat, ?mask:Mat):Void;
+	static function merge(mv:MatVector, dst:Mat):Void;
+	static function min(src1:Mat, src2:Mat, dst:Mat):Void;
+	static function multiply(src1:Mat, src2:Mat, dst:Mat, ?scale:Float, ?dtype:Int):Void;
+	static function normalize(src:Mat, dst:Mat, ?alpha:Float, ?beta:Float, ?normType:Int, ?dtype:Int, ?mask:Mat):Void;
+	static function polarToCart(x:Mat, y:Mat, magnitude:Mat, angle:Mat, ?angleInDegrees:Bool):Void;
+	static function pow(src:Mat, power:Float, dst:Mat):Void;
+	static function randn(mat:Mat, mean:Scalar, stddev:Scalar):Void;
+	static function randu(mat:Mat, low:Scalar, high:Scalar):Void;
+	static function reduce(src:Mat, dst:Mat, dim:Int, rtype:Int, ?dtype:Int):Void;
+	static function repeat(src:Mat, ny:Int, nx:Int, dst:Mat):Void;
+	static function setIdentity(mtx:Mat, ?s:Scalar):Void;
+	static function setRNGSeed(seed:Int):Void;
+	static function solve(src1:Mat, src2:Mat, dst:Mat, ?flags:Int):Bool;
+	static function split(m:Mat, mv:MatVector):Void;
+	static function sqrt(src:Mat, dst:Mat):Void;
+	static function subtract(src1:Mat, src2:Mat, dst:Mat, ?mask:Mat, ?dtype:Int):Void;
+	static function trace(mtx:Mat):Scalar;
+	static function transform(src:Mat, dst:Mat, m:Mat):Void;
+	static function transpose(src:Mat, dst:Mat):Void;
+	static function vconcat(src:MatVector, dst:Mat):Void;
+}

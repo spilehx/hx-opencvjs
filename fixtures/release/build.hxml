@@ -1,0 +1,4 @@
+-cp fixtures/release
+-lib hx-opencv
+-main Consumer
+-js /tmp/hx-opencv-release-consumer.js
