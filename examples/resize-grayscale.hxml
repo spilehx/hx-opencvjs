@@ -1,4 +1,4 @@
 -cp resize-grayscale/src
 -main Main
--lib hx-opencv
+-lib hx-opencvjs
 -js output/resize-grayscale/main.js

@@ -1,4 +1,4 @@
 -cp generated-image/src
 -main Main
--lib hx-opencv
+-lib hx-opencvjs
 -js output/generated-image/main.js

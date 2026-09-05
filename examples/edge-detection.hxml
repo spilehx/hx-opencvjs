@@ -1,4 +1,4 @@
 -cp edge-detection/src
 -main Main
--lib hx-opencv
+-lib hx-opencvjs
 -js output/edge-detection/main.js
